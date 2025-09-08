@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Common crawl rules
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+Disallow: /build/
+
+# Allow popular search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl delay for general bots
+Crawl-delay: 1
