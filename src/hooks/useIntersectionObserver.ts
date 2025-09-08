@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject } from "react";
+import { useState, useEffect, type RefObject } from 'react';
 
 interface UseIntersectionObserverProps {
   threshold?: number;
@@ -14,7 +14,7 @@ export const useIntersectionObserver = (
   const {
     threshold = 0.1,
     root = null,
-    rootMargin = "0px",
+    rootMargin = '0px',
     freezeOnceVisible = false,
   } = options;
 

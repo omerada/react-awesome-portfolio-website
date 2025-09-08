@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { clsx } from "clsx";
-import { X } from "lucide-react";
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { clsx } from 'clsx';
+import { X } from 'lucide-react';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
-  size?: "sm" | "md" | "lg" | "xl" | "full";
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
   closeOnOverlayClick?: boolean;
   closeOnEscape?: boolean;
   showCloseButton?: boolean;
@@ -19,17 +19,17 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  size = "md",
+  size = 'md',
   closeOnOverlayClick = true,
   closeOnEscape = true,
   showCloseButton = true,
 }) => {
   const sizeClasses = {
-    sm: "max-w-md",
-    md: "max-w-lg",
-    lg: "max-w-2xl",
-    xl: "max-w-4xl",
-    full: "max-w-full mx-4",
+    sm: 'max-w-md',
+    md: 'max-w-lg',
+    lg: 'max-w-2xl',
+    xl: 'max-w-4xl',
+    full: 'max-w-full mx-4',
   };
 
   // Handle escape key
@@ -37,32 +37,42 @@ export const Modal: React.FC<ModalProps> = ({
     if (!closeOnEscape) return;
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
 
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
   }, [isOpen, onClose, closeOnEscape]);
 
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
 
   const backdropVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 0.2,
+      },
+    },
   };
 
   const modalVariants = {
@@ -76,7 +86,7 @@ export const Modal: React.FC<ModalProps> = ({
       scale: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: 'spring' as const,
         damping: 25,
         stiffness: 300,
       },
@@ -108,7 +118,7 @@ export const Modal: React.FC<ModalProps> = ({
           {/* Modal */}
           <motion.div
             className={clsx(
-              "relative w-full bg-white dark:bg-dark-800 rounded-xl shadow-2xl",
+              'relative w-full bg-white dark:bg-dark-800 rounded-xl shadow-2xl',
               sizeClasses[size]
             )}
             variants={modalVariants}

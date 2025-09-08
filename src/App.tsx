@@ -1,29 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Analytics } from "@vercel/analytics/react";
-import { useScrollspy } from "./hooks/useScrollspy";
-import { BackToTop } from "./components/common/BackToTop";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
+import { useScrollspy } from './hooks/useScrollspy';
+import { BackToTop } from './components/common/BackToTop';
 
 // Component imports
-import Header from "./components/common/Header";
-import Hero from "./components/sections/Hero";
-import About from "./components/sections/About";
-import Skills from "./components/sections/Skills";
-import Projects from "./components/sections/Projects";
-import Experience from "./components/sections/Experience";
-import Testimonials from "./components/sections/Testimonials";
-import Contact from "./components/sections/Contact";
-import Footer from "./components/common/Footer";
+import Header from './components/common/Header';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Projects from './components/sections/Projects';
+import Experience from './components/sections/Experience';
+import Testimonials from './components/sections/Testimonials';
+import Contact from './components/sections/Contact';
+import Footer from './components/common/Footer';
 
 const sectionIds = [
-  "home",
-  "about",
-  "skills",
-  "projects",
-  "experience",
-  "testimonials",
-  "contact",
+  'home',
+  'about',
+  'skills',
+  'projects',
+  'experience',
+  'testimonials',
+  'contact',
 ];
 
 function AppContent() {
@@ -33,8 +32,8 @@ function AppContent() {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+        behavior: 'smooth',
+        block: 'start',
       });
     }
   };

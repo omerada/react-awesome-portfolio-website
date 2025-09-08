@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from 'react';
 
 export const useLocalStorage = <T>(
   key: string,
@@ -6,7 +6,7 @@ export const useLocalStorage = <T>(
 ): [T, (value: T | ((val: T) => T)) => void] => {
   // Get value from localStorage on initialization
   const [storedValue, setStoredValue] = useState<T>(() => {
-    if (typeof window === "undefined") {
+    if (typeof window === 'undefined') {
       return initialValue;
     }
 
@@ -30,7 +30,7 @@ export const useLocalStorage = <T>(
       setStoredValue(valueToStore);
 
       // Save to localStorage
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }
     } catch (error) {

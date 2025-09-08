@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, X, Calendar, Users } from "lucide-react";
-import { projects } from "../../data/projects";
-import { Project } from "../../types";
-import { Card } from "../ui/Card";
-import { Modal } from "../ui/Modal";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, X, Calendar, Users } from 'lucide-react';
+import { projects } from '../../data/projects';
+import type { Project } from '../../types';
+import { Card } from '../ui/Card';
+import { Modal } from '../ui/Modal';
 import {
   fadeInUp,
   staggerContainer,
   staggerItem,
   scaleIn,
-} from "../../utils/animations";
+} from '../../utils/animations';
 
 const Projects: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
-    { id: "all", name: "Tümü" },
-    { id: "web", name: "Web" },
-    { id: "mobile", name: "Mobil" },
-    { id: "desktop", name: "Desktop" },
-    { id: "game", name: "Oyun" },
+    { id: 'all', name: 'Tümü' },
+    { id: 'web', name: 'Web' },
+    { id: 'mobile', name: 'Mobil' },
+    { id: 'desktop', name: 'Desktop' },
+    { id: 'game', name: 'Oyun' },
   ];
 
   const filteredProjects =
-    selectedCategory === "all"
+    selectedCategory === 'all'
       ? projects
       : projects.filter((project) => project.category === selectedCategory);
 
@@ -61,8 +61,8 @@ const Projects: React.FC = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                 selectedCategory === category.id
-                  ? "bg-primary-600 text-white shadow-lg"
-                  : "bg-white dark:bg-dark-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-700"
+                  ? 'bg-primary-600 text-white shadow-lg'
+                  : 'bg-white dark:bg-dark-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-700'
               }`}
             >
               {category.name}
@@ -193,14 +193,14 @@ const Projects: React.FC = () => {
                     </h3>
                     <div className="space-y-2 text-gray-600 dark:text-gray-300">
                       <p>
-                        <strong>Başlangıç:</strong>{" "}
+                        <strong>Başlangıç:</strong>{' '}
                         {new Date(
                           selectedProject.startDate
                         ).toLocaleDateString()}
                       </p>
                       {selectedProject.endDate && (
                         <p>
-                          <strong>Bitiş:</strong>{" "}
+                          <strong>Bitiş:</strong>{' '}
                           {new Date(
                             selectedProject.endDate
                           ).toLocaleDateString()}
@@ -212,7 +212,7 @@ const Projects: React.FC = () => {
                       {selectedProject.teamSize && (
                         <p className="flex items-center gap-2">
                           <Users className="w-4 h-4" />
-                          <strong>Takım:</strong> {selectedProject.teamSize}{" "}
+                          <strong>Takım:</strong> {selectedProject.teamSize}{' '}
                           kişi
                         </p>
                       )}
