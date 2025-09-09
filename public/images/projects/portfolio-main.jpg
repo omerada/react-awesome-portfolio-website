@@ -1,0 +1,16 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%)"/>
+  <rect x="20" y="20" width="360" height="260" rx="10" fill="white" opacity="0.95"/>
+  <rect x="40" y="40" width="320" height="40" rx="5" fill="#3B82F6" opacity="0.1"/>
+  <text x="60" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6">Portfolio</text>
+  <rect x="290" y="50" width="60" height="20" rx="10" fill="#3B82F6"/>
+  <text x="320" y="63" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Live</text>
+  <rect x="50" y="100" width="100" height="60" rx="5" fill="#F3F4F6"/>
+  <text x="100" y="135" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">Project 1</text>
+  <rect x="160" y="100" width="100" height="60" rx="5" fill="#F3F4F6"/>
+  <text x="210" y="135" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">Project 2</text>
+  <rect x="270" y="100" width="80" height="60" rx="5" fill="#F3F4F6"/>
+  <text x="310" y="135" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">More</text>
+  <text x="200" y="200" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1F2937" text-anchor="middle">Portfolio Website</text>
+  <text x="200" y="225" font-family="Arial, sans-serif" font-size="14" fill="#6B7280" text-anchor="middle">This Website!</text>
+</svg>

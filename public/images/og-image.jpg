@@ -1,0 +1,10 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"/>
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="white" opacity="0.95"/>
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#3B82F6" text-anchor="middle">Ömer Ada</text>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="36" fill="#6B7280" text-anchor="middle">Full Stack Developer</text>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="24" fill="#9CA3AF" text-anchor="middle">React • Node.js • TypeScript • AWS</text>
+  <text x="600" y="450" font-family="Arial, sans-serif" font-size="20" fill="#6B7280" text-anchor="middle">Modern web uygulamaları geliştiren deneyimli developer</text>
+  <rect x="520" y="480" width="160" height="40" rx="20" fill="#3B82F6"/>
+  <text x="600" y="505" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Portfolio Görüntüle</text>
+</svg>

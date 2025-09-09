@@ -1,0 +1,6 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="50" fill="linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"/>
+  <text x="50" y="65" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#7C2D12" text-anchor="middle">FL</text>
+  <rect x="20" y="75" width="60" height="12" rx="6" fill="#7C2D12" opacity="0.2"/>
+  <text x="50" y="84" font-family="Arial, sans-serif" font-size="10" fill="#7C2D12" text-anchor="middle">Freelance</text>
+</svg>

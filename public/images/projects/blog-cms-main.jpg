@@ -1,0 +1,16 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"/>
+  <rect x="20" y="20" width="360" height="260" rx="10" fill="white" opacity="0.95"/>
+  <rect x="40" y="40" width="320" height="30" rx="5" fill="#F3F4F6"/>
+  <rect x="40" y="80" width="150" height="15" rx="3" fill="#E5E7EB"/>
+  <rect x="40" y="105" width="200" height="15" rx="3" fill="#E5E7EB"/>
+  <rect x="40" y="130" width="100" height="15" rx="3" fill="#E5E7EB"/>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1F2937" text-anchor="middle">Blog CMS</text>
+  <text x="200" y="205" font-family="Arial, sans-serif" font-size="16" fill="#6B7280" text-anchor="middle">Headless</text>
+  <rect x="70" y="230" width="60" height="20" rx="10" fill="#10B981" opacity="0.2"/>
+  <text x="100" y="243" font-family="Arial, sans-serif" font-size="10" fill="#10B981" text-anchor="middle">Next.js</text>
+  <rect x="140" y="230" width="60" height="20" rx="10" fill="#8B5CF6" opacity="0.2"/>
+  <text x="170" y="243" font-family="Arial, sans-serif" font-size="10" fill="#8B5CF6" text-anchor="middle">Sanity</text>
+  <rect x="210" y="230" width="70" height="20" rx="10" fill="#06B6D4" opacity="0.2"/>
+  <text x="245" y="243" font-family="Arial, sans-serif" font-size="10" fill="#06B6D4" text-anchor="middle">GraphQL</text>
+</svg>
