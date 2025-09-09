@@ -1,14 +1,21 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { MapPin, Calendar, Award, ExternalLink } from "lucide-react";
-import { experiences } from "../../data/experience";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Calendar, Award, ExternalLink } from 'lucide-react';
+import { experiences } from '../../data/experience';
+import { CompanyLogoPlaceholder } from '../ui/ImagePlaceholder';
 import {
   fadeInUp,
   staggerContainer,
   staggerItem,
-} from "../../utils/animations";
+} from '../../utils/animations';
 
 const Experience: React.FC = () => {
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (experienceId: string) => {
+    setImageErrors((prev) => new Set(prev).add(experienceId));
+  };
+
   return (
     <section className="section">
       <div className="container">
@@ -55,11 +62,18 @@ const Experience: React.FC = () => {
                     {/* Company Logo */}
                     {experience.companyLogo && (
                       <div className="flex-shrink-0">
-                        <img
-                          src={experience.companyLogo}
-                          alt={experience.company}
-                          className="w-16 h-16 rounded-lg object-contain bg-gray-50 dark:bg-dark-700 p-2"
-                        />
+                        {imageErrors.has(experience.id) ? (
+                          <CompanyLogoPlaceholder
+                            company={experience.company}
+                          />
+                        ) : (
+                          <img
+                            src={experience.companyLogo}
+                            alt={experience.company}
+                            className="w-16 h-16 rounded-lg object-contain bg-gray-50 dark:bg-dark-700 p-2"
+                            onError={() => handleImageError(experience.id)}
+                          />
+                        )}
                       </div>
                     )}
 
@@ -92,22 +106,22 @@ const Experience: React.FC = () => {
                           <Calendar className="w-4 h-4" />
                           <span>
                             {new Date(experience.startDate).toLocaleDateString(
-                              "tr-TR",
+                              'tr-TR',
                               {
-                                month: "long",
-                                year: "numeric",
+                                month: 'long',
+                                year: 'numeric',
                               }
-                            )}{" "}
-                            -{" "}
+                            )}{' '}
+                            -{' '}
                             {experience.endDate
                               ? new Date(experience.endDate).toLocaleDateString(
-                                  "tr-TR",
+                                  'tr-TR',
                                   {
-                                    month: "long",
-                                    year: "numeric",
+                                    month: 'long',
+                                    year: 'numeric',
                                   }
                                 )
-                              : "Devam ediyor"}
+                              : 'Devam ediyor'}
                           </span>
                         </div>
                         <div className="flex items-center gap-1">

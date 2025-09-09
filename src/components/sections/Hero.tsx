@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   Download,
   Mail,
@@ -7,23 +7,25 @@ import {
   Linkedin,
   Twitter,
   Instagram,
-} from "lucide-react";
-import { personalInfo } from "../../data/personal-info";
-import { Button } from "../ui/Button";
+} from 'lucide-react';
+import { personalInfo } from '../../data/personal-info';
+import { Button } from '../ui/Button';
+import { ProfileImagePlaceholder } from '../ui/ImagePlaceholder';
 import {
   fadeInUp,
   staggerContainer,
   staggerItem,
-} from "../../utils/animations";
+} from '../../utils/animations';
 
 const Hero: React.FC = () => {
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageError, setImageError] = useState(false);
   const titles = [
-    "Full Stack Developer",
-    "React Uzmanı",
-    "UI/UX Geliştirici",
-    "Problem Çözücü",
+    'Full Stack Developer',
+    'React Uzmanı',
+    'UI/UX Geliştirici',
+    'Problem Çözücü',
   ];
 
   useEffect(() => {
@@ -35,7 +37,7 @@ const Hero: React.FC = () => {
       return () => clearTimeout(timeout);
     } else {
       const timeout = setTimeout(() => {
-        setDisplayText("");
+        setDisplayText('');
         setCurrentIndex((prev) => (prev + 1) % titles.length);
       }, 2000);
       return () => clearTimeout(timeout);
@@ -54,18 +56,18 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    const link = document.createElement("a");
+    const link = document.createElement('a');
     link.href = personalInfo.cvUrl;
-    link.download = "Omer-Ada-CV.pdf";
+    link.download = 'Omer-Ada-CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
+    const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -181,7 +183,7 @@ const Hero: React.FC = () => {
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   style={
-                    { "--social-color": social.color } as React.CSSProperties
+                    { '--social-color': social.color } as React.CSSProperties
                   }
                 >
                   {getSocialIcon(social.icon)}
@@ -195,19 +197,19 @@ const Hero: React.FC = () => {
             <motion.div
               className="relative"
               whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
             >
               <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-white dark:border-dark-700 shadow-2xl">
-                <img
-                  src={personalInfo.avatar}
-                  alt={personalInfo.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src =
-                      "https://via.placeholder.com/400x400/3B82F6/FFFFFF?text=ÖA";
-                  }}
-                />
+                {imageError ? (
+                  <ProfileImagePlaceholder name={personalInfo.name} />
+                ) : (
+                  <img
+                    src={personalInfo.avatar}
+                    alt={personalInfo.name}
+                    className="w-full h-full object-cover"
+                    onError={() => setImageError(true)}
+                  />
+                )}
               </div>
 
               {/* Floating elements around image */}
@@ -218,7 +220,7 @@ const Hero: React.FC = () => {
                   scale: [1, 1.1, 1],
                 }}
                 transition={{
-                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                  rotate: { duration: 20, repeat: Infinity, ease: 'linear' },
                   scale: { duration: 2, repeat: Infinity },
                 }}
               >

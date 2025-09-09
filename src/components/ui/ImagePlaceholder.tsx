@@ -65,16 +65,26 @@ export const ProjectImagePlaceholder: React.FC<{ title?: string }> = ({
 
 export const ProfileImagePlaceholder: React.FC<{ name?: string }> = ({
   name = 'Profil Fotoğrafı',
-}) => (
-  <ImagePlaceholder
-    width="200px"
-    height="200px"
-    text={name}
-    className="rounded-full"
-    bgColor="#3b82f6"
-    textColor="#ffffff"
-  />
-);
+}) => {
+  // İsimden baş harfleri al
+  const initials = name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .substring(0, 2);
+
+  return (
+    <ImagePlaceholder
+      width="100%"
+      height="100%"
+      text={initials}
+      className="rounded-full text-4xl font-bold"
+      bgColor="#3b82f6"
+      textColor="#ffffff"
+    />
+  );
+};
 
 export const CompanyLogoPlaceholder: React.FC<{ company?: string }> = ({
   company = 'Şirket Logosu',

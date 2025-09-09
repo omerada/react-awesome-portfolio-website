@@ -5,6 +5,7 @@ import { projects } from '../../data/projects';
 import type { Project } from '../../types';
 import { Card } from '../ui/Card';
 import { Modal } from '../ui/Modal';
+import { ProjectImagePlaceholder } from '../ui/ImagePlaceholder';
 import {
   fadeInUp,
   staggerContainer,
@@ -15,6 +16,11 @@ import {
 const Projects: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (projectId: string) => {
+    setImageErrors((prev) => new Set(prev).add(projectId));
+  };
 
   const categories = [
     { id: 'all', name: 'Tümü' },
@@ -86,11 +92,16 @@ const Projects: React.FC = () => {
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative overflow-hidden rounded-lg mb-4">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
+                  {imageErrors.has(project.id) ? (
+                    <ProjectImagePlaceholder title={project.title} />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      onError={() => handleImageError(project.id)}
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -157,11 +168,18 @@ const Projects: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-64 object-cover"
-                />
+                {imageErrors.has(selectedProject.id) ? (
+                  <div className="w-full h-64 flex items-center justify-center">
+                    <ProjectImagePlaceholder title={selectedProject.title} />
+                  </div>
+                ) : (
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-64 object-cover"
+                    onError={() => handleImageError(selectedProject.id)}
+                  />
+                )}
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors"

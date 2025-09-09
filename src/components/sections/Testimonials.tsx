@@ -1,24 +1,30 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
-import { testimonials } from "../../data/testimonials";
-import { Card } from "../ui/Card";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { testimonials } from '../../data/testimonials';
+import { Card } from '../ui/Card';
+import { TestimonialImagePlaceholder } from '../ui/ImagePlaceholder';
 import {
   fadeInUp,
   staggerContainer,
   staggerItem,
-} from "../../utils/animations";
+} from '../../utils/animations';
 
 const Testimonials: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (testimonialName: string) => {
+    setImageErrors((prev) => new Set(prev).add(testimonialName));
+  };
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev: number) => (prev + 1) % testimonials.length);
   };
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+      (prev: number) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -71,8 +77,8 @@ const Testimonials: React.FC = () => {
                     key={i}
                     className={`w-6 h-6 ${
                       i < testimonials[currentIndex].rating
-                        ? "text-yellow-400 fill-current"
-                        : "text-gray-300 dark:text-gray-600"
+                        ? 'text-yellow-400 fill-current'
+                        : 'text-gray-300 dark:text-gray-600'
                     }`}
                   />
                 ))}
@@ -83,11 +89,20 @@ const Testimonials: React.FC = () => {
               </blockquote>
 
               <div className="flex items-center justify-center gap-4">
-                <img
-                  src={testimonials[currentIndex].avatar}
-                  alt={testimonials[currentIndex].name}
-                  className="w-16 h-16 rounded-full object-cover"
-                />
+                {imageErrors.has(testimonials[currentIndex].name) ? (
+                  <TestimonialImagePlaceholder
+                    name={testimonials[currentIndex].name}
+                  />
+                ) : (
+                  <img
+                    src={testimonials[currentIndex].avatar}
+                    alt={testimonials[currentIndex].name}
+                    className="w-16 h-16 rounded-full object-cover"
+                    onError={() =>
+                      handleImageError(testimonials[currentIndex].name)
+                    }
+                  />
+                )}
                 <div className="text-left">
                   <h4 className="font-semibold text-gray-900 dark:text-white text-lg">
                     {testimonials[currentIndex].name}
@@ -126,8 +141,8 @@ const Testimonials: React.FC = () => {
                 onClick={() => goToTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
                   index === currentIndex
-                    ? "bg-primary-600"
-                    : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"
+                    ? 'bg-primary-600'
+                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400'
                 }`}
               />
             ))}
@@ -148,17 +163,22 @@ const Testimonials: React.FC = () => {
                 hover
                 className={`h-full p-6 cursor-pointer transition-all duration-300 ${
                   index === currentIndex
-                    ? "ring-2 ring-primary-500 bg-primary-50 dark:bg-primary-900/20"
-                    : ""
+                    ? 'ring-2 ring-primary-500 bg-primary-50 dark:bg-primary-900/20'
+                    : ''
                 }`}
                 onClick={() => goToTestimonial(index)}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
+                  {imageErrors.has(testimonial.name) ? (
+                    <TestimonialImagePlaceholder name={testimonial.name} />
+                  ) : (
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                      onError={() => handleImageError(testimonial.name)}
+                    />
+                  )}
                   <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 dark:text-white">
                       {testimonial.name}
@@ -178,8 +198,8 @@ const Testimonials: React.FC = () => {
                       key={i}
                       className={`w-4 h-4 ${
                         i < testimonial.rating
-                          ? "text-yellow-400 fill-current"
-                          : "text-gray-300 dark:text-gray-600"
+                          ? 'text-yellow-400 fill-current'
+                          : 'text-gray-300 dark:text-gray-600'
                       }`}
                     />
                   ))}
