@@ -1,74 +1,74 @@
-# React Awesome Portfolio Website
+ # React Awesome Portfolio Website
 
-Modern, responsive ve interaktif bir portfolio website'i. React 19, TypeScript, Tailwind CSS ve
-Framer Motion kullanılarak geliştirilmiştir.
+Modern, responsive, and interactive portfolio website built with React 19, TypeScript, Tailwind CSS, and
+Framer Motion.
 
-## 🚀 Özellikler
+## 🚀 Features
 
 - ⚡ **Modern Tech Stack**: React 19 + TypeScript + Vite
-- 🎨 **Responsive Design**: Tüm cihazlarda mükemmel görünüm
-- 🌙 **Dark/Light Mode**: Otomatik tema değiştirme
-- ✨ **Smooth Animations**: Framer Motion ile profesyonel animasyonlar
-- 📱 **Mobile First**: Mobil odaklı tasarım yaklaşımı
-- 🎯 **SEO Optimized**: Arama motorları için optimize edilmiş
-- ⚡ **Fast Loading**: Optimize edilmiş performans
-- 📊 **Analytics Ready**: Vercel Analytics entegrasyonu
-- 🏗️ **PWA Ready**: Progressive Web App desteği
-- 📧 **Contact Form**: EmailJS ile çalışan iletişim formu
-- 🎵 **Typing Animation**: Dinamik başlık animasyonları
+- 🎨 **Responsive Design**: Looks great on all devices
+- 🌙 **Dark/Light Mode**: Automatic theme switching
+- ✨ **Smooth Animations**: Professional animations with Framer Motion
+- 📱 **Mobile First**: Mobile-first design approach
+- 🎯 **SEO Optimized**: Optimized for search engines
+- ⚡ **Fast Loading**: Performance optimizations
+- 📊 **Analytics Ready**: Vercel Analytics integration
+- 🏗️ **PWA Ready**: Progressive Web App support
+- 📧 **Contact Form**: Contact form powered by EmailJS
+- 🎵 **Typing Animation**: Dynamic heading animations
 
-## 📦 Kurulum
+## 📦 Installation
 
-1. **Repository'i klonlayın:**
+1. **Clone the repository:**
 
 ```bash
 git clone https://github.com/omerada/react-awesome-portfolio-website.git
 cd react-awesome-portfolio-website
 ```
 
-2. **Dependencies yükleyin:**
+2. **Install dependencies:**
 
 ```bash
 npm install
 ```
 
-3. **Environment variables ayarlayın:**
+3. **Set environment variables:**
 
 ```bash
 cp .env.example .env
 ```
 
-`.env` dosyasını düzenleyip kendi bilgilerinizi girin.
+Edit the `.env` file and fill in your own values.
 
-4. **Geliştirme sunucusunu başlatın:**
+4. **Start the development server:**
 
 ```bash
 npm run dev
 ```
 
-5. **Tarayıcınızda açın:**
+5. **Open in your browser:**
 
 ```
 http://localhost:3000
 ```
 
-## 🛠️ Kullanılan Teknolojiler
+## 🛠️ Technologies Used
 
 ### Frontend
 
-- **React 19** - Modern React hooks ve features
-- **TypeScript** - Type safety ve better DX
-- **Vite** - Hızlı build tool ve dev server
+- **React 19** - Modern React hooks and features
+- **TypeScript** - Type safety and better DX
+- **Vite** - Fast build tool and dev server
 - **Tailwind CSS 3** - Utility-first CSS framework
 - **Framer Motion** - Production-ready motion library
 
-### Kütüphaneler
+### Libraries
 
 - **React Router DOM** - Client-side routing
-- **React Hook Form** - Form yönetimi
-- **EmailJS** - Email gönderimi
+- **React Hook Form** - Form management
+- **EmailJS** - Email sending
 - **Lucide React** - Modern icon library
-- **React Icons** - Geniş icon koleksiyonu
+- **React Icons** - Large icon collection
 - **Clsx** - Conditional className utility
 - **Tailwind Merge** - Tailwind class merging
 
@@ -78,7 +78,7 @@ http://localhost:3000
 - **ESLint + Prettier** - Code quality
 - **PostCSS + Autoprefixer** - CSS preprocessing
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
@@ -93,46 +93,46 @@ src/
 └── assets/              # images, icons
 ```
 
-## ⚙️ Konfigürasyon
+## ⚙️ Configuration
 
-### 1. Kişisel Bilgileri Güncelleme
+### 1. Update Personal Info
 
-`src/data/personal-info.ts` dosyasını düzenleyin:
+Edit the `src/data/personal-info.ts` file:
 
 ```typescript
 export const personalInfo: PersonalInfo = {
-  name: 'Adınız Soyadınız',
+  name: 'Your Name',
   title: 'Full Stack Developer',
-  subtitle: 'Modern web uygulamaları geliştiren tutkulu geliştirici',
+  subtitle: 'A passionate developer building modern web applications',
   email: 'email@example.com',
   phone: '+90 555 123 45 67',
-  location: 'İstanbul, Türkiye',
-  bio: 'Hakkımda kısa açıklama...',
+  location: 'Istanbul, Turkey',
+  bio: 'Short bio about you...',
   avatar: '/images/profile.jpg',
   cvUrl: '/documents/cv.pdf',
   socialLinks: [
-    // Sosyal medya bağlantıları
+    // Social links
   ],
 };
 ```
 
-### 2. Projeleri Güncelleme
+### 2. Update Projects
 
-`src/data/projects.ts` dosyasında projelerinizi tanımlayın.
+Define your projects in the `src/data/projects.ts` file.
 
-### 3. Yetenekleri Güncelleme
+### 3. Update Skills
 
-`src/data/skills.ts` dosyasında yeteneklerinizi kategorilere ayırarak listeleyin.
+List your skills by category in the `src/data/skills.ts` file.
 
-### 4. Deneyimleri Güncelleme
+### 4. Update Experience
 
-`src/data/experience.ts` dosyasında iş deneyimlerinizi kronolojik olarak listeleyin.
+List your work experience chronologically in the `src/data/experience.ts` file.
 
-### 5. EmailJS Kurulumu
+### 5. EmailJS Setup
 
-1. [EmailJS](https://www.emailjs.com/) hesabı oluşturun
-2. Service ve template oluşturun
-3. `.env` dosyasına bilgilerinizi ekleyin:
+1. Create an account on [EmailJS](https://www.emailjs.com/)
+2. Create a service and a template
+3. Add your values to the `.env` file:
 
 ```env
 VITE_EMAILJS_SERVICE_ID=your_service_id
@@ -140,11 +140,11 @@ VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
 
-## 🎨 Özelleştirme
+## 🎨 Customization
 
-### Tema Renkleri
+### Theme Colors
 
-`tailwind.config.js` dosyasında primary ve dark color palette'lerini düzenleyebilirsiniz:
+You can adjust the primary and dark color palettes in `tailwind.config.js`:
 
 ```javascript
 colors: {
@@ -156,14 +156,14 @@ colors: {
 }
 ```
 
-### Animasyonlar
+### Animations
 
-`src/utils/animations.ts` dosyasında Framer Motion animasyonlarını özelleştirebilirsiniz.
+Customize Framer Motion animations in `src/utils/animations.ts`.
 
-## 📱 PWA Özellikleri
+## 📱 PWA Features
 
-- Offline çalışabilme
-- App-like deneyim
+- Offline support
+- App-like experience
 - Install prompt
 - Service worker cache
 - Responsive icons
@@ -171,7 +171,7 @@ colors: {
 ## 🚀 Production Build
 
 ```bash
-# Build oluştur
+# Build
 npm run build
 
 # Preview build
@@ -191,21 +191,21 @@ npm run format
 
 ### Vercel Deploy
 
-1. GitHub'a push edin
-2. [Vercel](https://vercel.com/) hesabınıza bağlayın
-3. Repository'i import edin
-4. Environment variables ekleyin
-5. Deploy edin
+1. Push to GitHub
+2. Connect your GitHub account to [Vercel](https://vercel.com/)
+3. Import the repository
+4. Add environment variables
+5. Deploy
 
 ### Netlify Deploy
 
-1. `npm run build` çalıştırın
-2. `dist` klasörünü Netlify'a yükleyin
+1. Run `npm run build`
+2. Upload the `dist` folder to Netlify
 
 ### Manual Deploy
 
-1. Build oluşturun: `npm run build`
-2. `dist` klasörünü web sunucunuza yükleyin
+1. Create a build: `npm run build`
+2. Upload the `dist` folder to your web server
 
 ## 📊 Performance
 
@@ -215,19 +215,19 @@ npm run format
 - Code splitting
 - Bundle optimization
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit edin (`git commit -m 'Add some amazing feature'`)
-4. Push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📄 Lisans
+## 📄 License
 
-Bu proje [MIT License](LICENSE) altında lisanslanmıştır.
+This project is licensed under the [MIT License](LICENSE).
 
-## 🙏 Teşekkürler
+## 🙏 Thanks
 
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -238,3 +238,5 @@ Bu proje [MIT License](LICENSE) altında lisanslanmıştır.
 ---
 
 Made with ❤️ by [Ömer Ada](https://github.com/omerada)
+
+```
